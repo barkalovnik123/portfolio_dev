@@ -5,23 +5,7 @@ const About = () => {
         <section className="bg-[#555452] text-green-100 flex flex-col w-full
         md:flex-row md:flex-wrap md:justify-around">
             <AboutCard>
-                <h2 className="text-2xl p-1 pt-4">
-                    🎓 Студент НГТУ НЭТИ
-                </h2>
-                <ul className="list-disc list-inside p-4">
-                    <li>
-                        3 курс факультета автоматики и вычислительной техники ("Программная инженерия")
-                    </li>
-                    <li>
-                        <a href="https://www.nstu.ru/studies/stud_account/student_portfolio/c56574b65a606a6f18e56499e30a5bc1792ece62">Бланк успеваемости</a>
-                    </li>
-                    <li>
-                        Университетские проекты
-                    </li>
-                </ul>
-            </AboutCard>
-            <AboutCard>
-                <h2 className="text-2xl p-1 pt-4">🧑‍🏫 Преподаватель программирования</h2>
+                <h2 className="text-2xl p-1 pt-4">🧑‍🏫 Опыт работы 3 года </h2>
                 <ul className="list-disc list-inside p-4">
                     <li>
                         "Movavi"
@@ -57,6 +41,22 @@ const About = () => {
                     <li>Vanilla JS: HTML, CSS (SASS, LESS), TailWind</li>
                     <li>Java: Javalin, JavaFX</li>
                     <li>Python: FastAPI, PyQt6</li>
+                </ul>
+            </AboutCard>
+            <AboutCard>
+                <h2 className="text-2xl p-1 pt-4">
+                    🎓 Студент НГТУ НЭТИ
+                </h2>
+                <ul className="list-disc list-inside p-4">
+                    <li>
+                        3 курс факультета автоматики и вычислительной техники ("Программная инженерия")
+                    </li>
+                    <li>
+                        <a href="https://www.nstu.ru/studies/stud_account/student_portfolio/c56574b65a606a6f18e56499e30a5bc1792ece62">Бланк успеваемости</a>
+                    </li>
+                    <li>
+                        Университетские проекты
+                    </li>
                 </ul>
             </AboutCard>
         </section>

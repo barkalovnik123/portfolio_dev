@@ -1,5 +1,3 @@
-import HeaderLink from "../widgets/headerLink";
-
 const Hero = () => {
     return (
         <section 
