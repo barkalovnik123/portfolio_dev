@@ -2,7 +2,7 @@ import AboutCard from "../widgets/aboutCard";
 
 const About = () => {
     return <>
-        <section className="bg-gray-900 text-green-100 flex flex-col w-full
+        <section className="bg-[#555452] text-green-100 flex flex-col w-full
         md:flex-row md:flex-wrap md:justify-around">
             <AboutCard>
                 <h2 className="text-2xl p-1 pt-4">
