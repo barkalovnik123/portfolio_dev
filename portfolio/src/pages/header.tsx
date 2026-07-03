@@ -1,8 +1,27 @@
 import HeaderLink from "../widgets/headerLink";
 
-const Header = () => {
-    return <header className="h-screen bg-cover bg-bottom bg-[url('../../public/pp7.jpg')]">
-    </header>
+const Hero = () => {
+    return (
+        <section 
+            aria-label="Главный экран"
+            className="h-screen bg-cover bg-bottom bg-[url('../../public/pp6.png')]
+            sm:flex flex-col-reverse"
+        >
+            <hgroup className="m-auto w-fit font-serif sm:text-gray-200 
+            sm:m-0 sm:flex sm:flex-col-reverse">
+                <h1 className="text-5xl pt-10 sm:p-3
+                md:text-7xl lg:text-8xl">
+                    Баркалов <br className="sm:hidden" /> Никита
+                </h1>
+                <p className="lg:text-4xl md:text-3xl sm:ps-3">
+                    Преподаватель
+                </p>
+                <p className="lg:text-4xl md:text-3xl sm:ps-3">
+                    Разработчик Full-stack
+                </p>
+            </hgroup>
+        </section>
+    )
 }
 
-export default Header;
+export default Hero;
