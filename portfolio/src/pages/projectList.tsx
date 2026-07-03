@@ -15,7 +15,7 @@ const ProjectList = () => {
     })
 
     return <>
-            <section className="flex flex-wrap gap-2 bg-gray-900 p-4">
+            <section className="flex flex-wrap gap-2 justify-around content-stretch bg-gray-900 p-4">
                 {projects.map((e, i) => <ProjectCard project={e} onOpen={setActiveSlug} key={i}/>)}
             </section>
             <ProjectModal slug={activeSlug} onClose={() => setActiveSlug(null)} />

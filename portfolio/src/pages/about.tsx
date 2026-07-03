@@ -5,15 +5,15 @@ const About = () => {
         <section className="bg-gray-900 text-green-100 flex flex-col w-full
         md:flex-row md:flex-wrap md:justify-around">
             <AboutCard>
-                <h2 className="text-2xl p-1">
+                <h2 className="text-2xl p-1 pt-4">
                     🎓 Студент НГТУ НЭТИ
                 </h2>
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside p-4">
                     <li>
                         3 курс факультета автоматики и вычислительной техники ("Программная инженерия")
                     </li>
                     <li>
-                        <a href="">Бланк успеваемости</a>
+                        <a href="https://www.nstu.ru/studies/stud_account/student_portfolio/c56574b65a606a6f18e56499e30a5bc1792ece62">Бланк успеваемости</a>
                     </li>
                     <li>
                         Университетские проекты
@@ -21,8 +21,8 @@ const About = () => {
                 </ul>
             </AboutCard>
             <AboutCard>
-                <h2 className="text-2xl p-1">🧑‍🏫 Преподаватель программирования</h2>
-                <ul className="list-disc list-inside">
+                <h2 className="text-2xl p-1 pt-4">🧑‍🏫 Преподаватель программирования</h2>
+                <ul className="list-disc list-inside p-4">
                     <li>
                         "Movavi"
                         <ul className="list-disc pl-5 list-inside">
@@ -51,8 +51,8 @@ const About = () => {
                 </ul>
             </AboutCard>
             <AboutCard>
-                <h2 className="text-2xl p-1">👩‍💻 Стэки с которыми работал</h2>
-                <ul className="list-disc list-inside">
+                <h2 className="text-2xl p-1 pt-4">👩‍💻 Стэки с которыми работал</h2>
+                <ul className="list-disc list-inside p-4">
                     <li>TypeScript: React, Node (express), WebSocket</li>
                     <li>Vanilla JS: HTML, CSS (SASS, LESS), TailWind</li>
                     <li>Java: Javalin, JavaFX</li>
