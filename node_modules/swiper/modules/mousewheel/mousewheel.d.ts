@@ -1,0 +1,109 @@
+import type { Swiper, SwiperModule } from '../../core/core.js';
+import type { CSSSelector } from '../../types/shared.js';
+export interface MousewheelOptions {
+    /**
+     * Set to `true` to enable mousewheel control
+     *
+     * @default false
+     */
+    enabled?: boolean;
+    /**
+     * Set to `true` to force mousewheel swipes to axis. So in horizontal mode mousewheel will work only with horizontal mousewheel scrolling, and only with vertical scrolling in vertical mode.
+     *
+     * @default false
+     */
+    forceToAxis?: boolean;
+    /**
+     * Set to `true` and swiper will release mousewheel event and allow page scrolling when swiper is on edge positions (in the beginning or in the end)
+     *
+     * @default false
+     */
+    releaseOnEdges?: boolean;
+    /**
+     * Set to `true` to invert sliding direction
+     *
+     * @default false
+     */
+    invert?: boolean;
+    /**
+     * Multiplier of mousewheel data, allows to tweak mouse wheel sensitivity
+     *
+     * @default 1
+     */
+    sensitivity?: number;
+    /**
+     * String with CSS selector or HTML element of the container accepting mousewheel events. By default it is swiper
+     *
+     * @default 'container'
+     */
+    eventsTarget?: 'container' | 'wrapper' | CSSSelector | HTMLElement;
+    /**
+     * Minimum mousewheel scroll delta to trigger swiper slide change
+     *
+     * @default null
+     */
+    thresholdDelta?: number | null;
+    /**
+     * Minimum mousewheel scroll time delta (in ms) to trigger swiper slide change
+     *
+     * @default null
+     */
+    thresholdTime?: number | null;
+    /**
+     * Scrolling on elements with this class will be ignored
+     *
+     * @default 'swiper-no-mousewheel'
+     */
+    noMousewheelClass?: string;
+}
+export interface MousewheelMethods {
+    /**
+     * Whether the mousewheel control is enabled
+     */
+    enabled: boolean;
+    /**
+     * Enable mousewheel control
+     */
+    enable(): void;
+    /**
+     * Disable mousewheel control
+     */
+    disable(): void;
+}
+export interface MousewheelEvents {
+    /**
+     * Event will be fired on mousewheel scroll
+     */
+    scroll: (swiper: Swiper, event: WheelEvent) => void;
+}
+interface MousewheelInternals extends Omit<MousewheelMethods, 'enable' | 'disable'> {
+    enable: () => boolean;
+    disable: () => boolean;
+}
+declare module '../../core/core.js' {
+    interface Swiper {
+        mousewheel: MousewheelInternals;
+    }
+    interface SwiperOptions {
+        /**
+         * Enables navigation through slides using mouse wheel. Object with mousewheel parameters or boolean `true` to enable with default settings
+         *
+         * @example
+         * ```js
+         * const swiper = new Swiper('.swiper', {
+         *   mousewheel: {
+         *     invert: true,
+         *   },
+         * });
+         * ```
+         */
+        mousewheel?: MousewheelOptions | boolean;
+    }
+    interface SwiperParams {
+        mousewheel?: MousewheelOptions;
+    }
+    interface SwiperEvents extends MousewheelEvents {
+    }
+}
+declare const Mousewheel: SwiperModule;
+export default Mousewheel;

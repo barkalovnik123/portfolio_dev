@@ -21,7 +21,7 @@ const content: Array<Project> = [
     "stack": ["React", "TypeScript", "Node.js", "Fastify", "PostgreSQL", "Drizzle", "WebRTC", "TailwindCSS", "Docker"],
     "github": "https://github.com/nikita/middletalk",
     "demo": "https://middletalk.vercel.app",
-    "image": "../public/middletalk.png",
+    "image": "/middletalk.png",
     "tags": ["edtech", "realtime", "websockets", "pet-project"],
     "featured": true,
     "desc": `
@@ -70,7 +70,7 @@ const content: Array<Project> = [
     stack: ["JS", "HTML", "CSS"],
     github: "https://github.com/barkalovnik123/JavaScript-Conway-s-game-of-Life",
     demo: "https://barkalovnik123.github.io/JavaScript-Conway-s-game-of-Life/",
-    image: "../public/gameoflife.png",
+    image: "/gameoflife.png",
     tags: ["edtech", "realtime", "websockets", "pet-project"],
     featured: true,
     desc: `
@@ -99,7 +99,7 @@ const content: Array<Project> = [
     stack: ["React", "Node.js", "CSS"],
     github: "https://github.com/barkalovnik123/Tic-Tac-Toe",
     demo: "https://barkalovnik123.github.io/Tic-Tac-Toe/",
-    image: "../public/tictactoe.png",
+    image: "/tictactoe.png",
     tags: ["edtech", "realtime", "websockets", "pet-project"],
     featured: true,
     desc: `

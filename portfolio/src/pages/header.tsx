@@ -3,7 +3,8 @@ const Hero = () => {
         <section 
             aria-label="Главный экран"
             className="h-screen bg-cover bg-bottom bg-[url('../../public/pp6.png')]
-            sm:flex flex-col-reverse"
+            sm:flex flex-col-reverse
+            sticky top-0 z-10"
         >
             <hgroup className="m-auto w-fit font-serif sm:text-gray-200 
             sm:m-0 sm:flex sm:flex-col-reverse">

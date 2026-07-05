@@ -1,0 +1,11 @@
+import type { SwiperOptions } from '../core/core.js';
+export declare function isObject(o: unknown): o is Record<string, unknown>;
+export declare function extend<T extends object, S extends object>(target: T, src: S): T & S;
+type ParamsLike = Partial<Pick<SwiperOptions, 'navigation' | 'pagination' | 'scrollbar'>>;
+export declare function needsNavigation(params?: ParamsLike): boolean;
+export declare function needsPagination(params?: ParamsLike): boolean;
+export declare function needsScrollbar(params?: ParamsLike): boolean;
+export declare function uniqueClasses(classNames?: string): string;
+export declare function attrToProp(attrName?: string): string;
+export declare function wrapperClass(className?: string): string;
+export {};

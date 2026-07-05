@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": {
+    "swiper": "^14.0.1"
+  }
+}

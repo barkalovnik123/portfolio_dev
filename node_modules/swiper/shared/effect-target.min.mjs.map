@@ -1,0 +1,1 @@
+{"version":3,"file":"effect-target.mjs.mjs","names":["getSlideTransformEl","effectTarget","_effectParams","slideEl","transformEl","style","backfaceVisibility","setProperty"],"sources":["0"],"mappings":"YAAcA,wBAA2B,kBAEzC,SAASC,aAAaC,EAAeC,GACjC,MAAMC,EAAcJ,oBAAoBG,GAKxC,OAJIC,IAAgBD,IAChBC,EAAYC,MAAMC,mBAAqB,SACvCF,EAAYC,MAAME,YAAY,8BAA+B,WAE1DH,CACX,QAESH"}
