@@ -16,5 +16,8 @@ export default defineConfig({
   optimizeDeps: {
     include: ['gray-matter'] // Убедимся, что Vite правильно обработает CJS-пакет
   },
-  assetsInclude: ['**/*.md'], // добавь markdown в ассеты
+  assetsInclude: ['**/*.md'], // добавь markdown в ассеты,
+  resolve: {
+    dedupe: ['react', 'react-dom'],  // ← ВАЖНО!
+  },
 });
