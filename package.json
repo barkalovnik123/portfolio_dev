@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-router-dom": "^7.18.1",
     "swiper": "^14.0.1"
   }
 }
