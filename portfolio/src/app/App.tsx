@@ -1,11 +1,10 @@
 import './App.css'
-import ProjectList from '../pages/projectList'
 import Hero from '../pages/header'
-import About from '../pages/about'
 import Footer from '../pages/footer'
-import TopProjects from '../pages/TopProjects';
 import Companies from "../pages/companies";
 import Projects from "../pages/projects";
+import Edu from "../pages/edu";
+import Stacks from "../pages/stacks";
 import { BrowserRouter } from 'react-router-dom'
 
 function App() {
@@ -14,9 +13,8 @@ function App() {
       <Hero></Hero>
       <Companies></Companies>
       <Projects></Projects>
-      <TopProjects></TopProjects>
-      <About></About>
-      <ProjectList></ProjectList>
+      <Edu></Edu>
+      <Stacks></Stacks>
       <Footer></Footer>
     </BrowserRouter>
   )

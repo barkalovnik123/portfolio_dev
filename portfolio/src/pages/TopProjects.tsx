@@ -1,9 +1,7 @@
-import Markdown from 'react-markdown'
 import {content} from '../content/content';
 import {type Project} from '../content/content';
 import {type ReactNode} from 'react';
 import Carousel from '../widgets/carousel';
-import TopProjectCard from '../widgets/topProjectCard';
 
 const MarkDownPlay = () => {
     return <section className="

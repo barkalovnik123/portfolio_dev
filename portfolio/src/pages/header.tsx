@@ -2,7 +2,7 @@ const Hero = () => {
     return (
         <section 
             aria-label="Главный экран"
-            className="relative h-screen bg-cover bg-bottom bg-[url('../../public/pp6.png')]
+            className="relative h-screen bg-cover bg-bottom bg-[url('/pp6.png')]
             sm:flex flex-col-reverse 
             "
             style={{boxShadow: "black 0 0 120px",

@@ -1,5 +1,8 @@
+// ProjectsCarousel.tsx
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import type { Swiper as SwiperType } from 'swiper'
+import { useState } from 'react';
 import { EffectFade, Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
@@ -11,52 +14,30 @@ const projects = [
     id: 1,
     title: 'MiddleTalk',
     description:
-      'Платформа для менторства при написании кода',
-    tags: ['Javalin', 'JavaFX', 'WebSocket', 'RichText', 'SQLite'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80',
+      'Десктоп платформа для живого ревью кода',
+    tags: ['Javalin', 'JavaFX', 'WebSocket', 'Argon2d'],
+    image: '/middletalk.png',
     link: '/projects/ecommerce',
   },
   {
     id: 2,
-    title: 'CRM-система для агентства',
+    title: 'EcoEmergency',
     description:
-      'Внутренняя система управления клиентами, сделками и аналитикой для маркетингового агентства.',
-    tags: ['Next.js', 'Prisma', 'Tailwind', 'tRPC'],
+      'Геймифицированная платформа для волонтёров',
+    tags: ['JQuery', 'Express', 'FakeDB', 'Telegram'],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
     link: '/projects/crm',
-  },
-  {
-    id: 3,
-    title: 'Мобильное приложение для фитнеса',
-    description:
-      'PWA-приложение с тренировками, трекингом прогресса и интеграцией с носимыми устройствами.',
-    tags: ['React Native', 'Redux', 'Firebase'],
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80',
-    link: '/projects/fitness',
-  },
-  {
-    id: 4,
-    title: 'Корпоративный портал',
-    description:
-      'Внутренний портал компании с системой задач, базой знаний и чатом в реальном времени.',
-    tags: ['Vue 3', 'WebSocket', 'Docker', 'MongoDB'],
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80',
-    link: '/projects/portal',
-  },
-  {
-    id: 5,
-    title: 'Образовательная платформа',
-    description:
-      'LMS-система с видеокурсами, тестированием, выдачей сертификатов и геймификацией обучения.',
-    tags: ['React', 'GraphQL', 'AWS', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1920&q=80',
-    link: '/projects/lms',
   },
 ]
 
 export default function ProjectsCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black font-serif">
+    <section className="relative h-screen w-full overflow-hidden bg-black font-serif"
+    style={{boxShadow: "black 0 0 120px",
+                zIndex: "10"
+            }}>
       <Swiper
         modules={[EffectFade, Autoplay, Pagination, Navigation]}
         effect="fade"
@@ -64,7 +45,7 @@ export default function ProjectsCarousel() {
         speed={1200}
         loop={true}
         autoplay={{
-          delay: 4000,
+          delay: 5000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
@@ -73,6 +54,9 @@ export default function ProjectsCarousel() {
           el: '.custom-pagination',
           bulletClass: 'swiper-bullet',
           bulletActiveClass: 'swiper-bullet-active',
+        }}
+        onSlideChange={(swiper: SwiperType) => {
+          setActiveIndex(swiper.realIndex)
         }}
         navigation={{
           nextEl: '.swiper-button-next-custom',
@@ -84,7 +68,7 @@ export default function ProjectsCarousel() {
           <SwiperSlide key={project.id}>
             {/* Фоновое изображение */}
             <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms] ease-out"
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-8000 ease-out"
               style={{ backgroundImage: `url(${project.image})` }}
             >
               {/* Лёгкий zoom при показе слайда */}
@@ -92,8 +76,8 @@ export default function ProjectsCarousel() {
             </div>
 
             {/* Градиентные затемнения для читаемости текста */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/30" />
+            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
 
             {/* Контент слайда */}
             <div className="relative z-10 flex h-full flex-col justify-end p-8 md:p-16 lg:p-24">
@@ -162,7 +146,7 @@ export default function ProjectsCarousel() {
       <div className="custom-pagination absolute bottom-32 left-8 z-20 flex gap-2 md:bottom-40 md:left-16 lg:bottom-24" />
 
       {/* Блок с предложением перейти на страницу всех проектов */}
-      <div className="absolute bottom-8 right-8 z-20 md:bottom-12 md:right-16 lg:bottom-12 lg:right-24">
+      <div className="top-15 md:top-auto absolute bottom-8 right-8 z-20 md:bottom-12 md:right-16 lg:bottom-12 lg:right-24">
         <Link
           to="/projects"
           className="group flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/50"
@@ -181,9 +165,11 @@ export default function ProjectsCarousel() {
         </span>
         <div className="h-px w-12 bg-white/30" />
         <span className="text-xs text-white/60">
-          <span className="text-white font-semibold">01</span> / {String(projects.length).padStart(2, '0')}
+          <span className="text-white font-semibold">{String(activeIndex + 1).padStart(2, '0')}</span> / {String(projects.length).padStart(2, '0')}
         </span>
       </div>
     </section>
   )
 }
+
+//123456☺☻♥-тmТ
