@@ -1,9 +1,11 @@
 // Companies.tsx
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import SphereProjection from '../widgets/sphereProjection'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Reveal from '../widgets/reveal'
 
 const companies = [
   {
@@ -50,15 +52,21 @@ const companies = [
 
 export default function Companies() {
   return (
-    <section className="py-20 font-serif bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section className="snap-section min-h-screen flex flex-col justify-center py-20 font-serif bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="w-full h-full">
+            <SphereProjection></SphereProjection>
+      </div>
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-          Мой опыт работы
-        </h2>
-        <p className="text-xl text-center text-gray-600 dark:text-gray-300 mb-12">
-          Компании, в которых я развивал свои навыки
-        </p>
+        <Reveal from="up">
+          <h2 className="text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            Мой опыт работы
+          </h2>
+          <p className="text-xl text-center text-gray-600 dark:text-gray-300 mb-12">
+            Компании, в которых я развивал свои навыки
+          </p>
+        </Reveal>
 
+        <Reveal from="scale" delay={150}>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
@@ -86,7 +94,7 @@ export default function Companies() {
             <SwiperSlide key={company.id}>
               <div className="mt-4 mb-4 h-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 {/* Градиентная шапка */}
-                <div className={`h-32 bg-gradient-to-br ${company.color} flex items-center justify-center`}>
+                <div className={`h-32 bg-linear-to-br ${company.color} flex items-center justify-center`}>
                   <div className="text-6xl overflow-clip">
                     <img src={company.logo} alt="" className='p-4'/>
                   </div>
@@ -131,6 +139,7 @@ export default function Companies() {
             </SwiperSlide>
           ))}
         </Swiper>
+        </Reveal>
       </div>
     </section>
   )

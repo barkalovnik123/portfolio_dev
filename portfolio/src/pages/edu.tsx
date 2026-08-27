@@ -1,25 +1,27 @@
 // Education.tsx
 import { useState } from 'react'
+import Reveal from '../widgets/reveal'
 
 export default function Education() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800
+    <section className="snap-section min-h-screen flex flex-col justify-center py-16 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800
     font-serif">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Заголовок секции */}
-          <div className="text-center mb-10">
+          <Reveal from="up" className="text-center mb-10">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               Образование
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
               Текущий этап обучения
             </p>
-          </div>
+          </Reveal>
 
           {/* Карточка университета */}
+          <Reveal from="scale" delay={150}>
           <div
             className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl"
             onMouseEnter={() => setIsHovered(true)}
@@ -121,6 +123,7 @@ export default function Education() {
             {/* Декоративный элемент снизу */}
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

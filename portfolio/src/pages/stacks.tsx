@@ -1,5 +1,7 @@
 import { type ReactNode } from 'react'
 // TechStack.tsx
+import Reveal from '../widgets/reveal'
+
 export default function TechStack(): ReactNode {
   const technologies = [
     {
@@ -42,6 +44,7 @@ export default function TechStack(): ReactNode {
       name: 'Next.js',
       category: 'Framework',
       icon: '▲',
+      bg: "/nextjs.jpg",
       description: 'React с SSR и SSG',
       gradient: 'from-gray-900 to-gray-700',
       size: 'col-span-1 row-span-1',
@@ -50,6 +53,7 @@ export default function TechStack(): ReactNode {
       name: 'PostgreSQL',
       category: 'База данных',
       icon: '🐘',
+      bg: "/postgre.webp",
       description: 'Реляционная БД',
       gradient: 'from-blue-700 to-indigo-800',
       size: 'col-span-1 row-span-1',
@@ -58,6 +62,7 @@ export default function TechStack(): ReactNode {
       name: 'Git',
       category: 'Инструменты',
       icon: '🔀',
+      bg: "/git.webp",
       description: 'Контроль версий',
       gradient: 'from-orange-500 to-red-600',
       size: 'col-span-1 row-span-1',
@@ -66,6 +71,7 @@ export default function TechStack(): ReactNode {
       name: 'Docker',
       category: 'DevOps',
       icon: '🐳',
+      bg: "docker.jpeg",
       description: 'Контейнеризация',
       gradient: 'from-blue-500 to-cyan-600',
       size: 'col-span-1 row-span-1',
@@ -74,6 +80,7 @@ export default function TechStack(): ReactNode {
       name: 'Python',
       category: 'Backend',
       icon: '🐍',
+      bg: "python.webp",
       description: 'Автоматизация и API',
       gradient: 'from-yellow-500 to-orange-600',
       size: 'col-span-2 row-span-1',
@@ -82,6 +89,7 @@ export default function TechStack(): ReactNode {
       name: 'Figma',
       category: 'Дизайн',
       icon: '🎯',
+      bg: "/figma.jpg",
       description: 'UI/UX прототипы',
       gradient: 'from-purple-500 to-pink-600',
       size: 'col-span-1 row-span-1',
@@ -90,6 +98,7 @@ export default function TechStack(): ReactNode {
       name: 'MongoDB',
       category: 'База данных',
       icon: '🍃',
+      bg: '/mongo.webp',
       description: 'NoSQL база данных',
       gradient: 'from-green-600 to-emerald-700',
       size: 'col-span-1 row-span-1',
@@ -97,7 +106,7 @@ export default function TechStack(): ReactNode {
   ]
 
   return (
-    <section className="font-serif
+    <section className="snap-section min-h-screen flex flex-col justify-center font-serif
     py-20 bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 bg-[url('/nightsky.jpg')] bg-no-repeat bg-cover"
     style={{
         boxShadow: "black 0 0 120px",
@@ -105,17 +114,17 @@ export default function TechStack(): ReactNode {
             }}>
       <div className="container mx-auto px-4">
         {/* Заголовок */}
-        <div className="text-center mb-16">
+        <Reveal from="up" className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Стэки
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Инструменты и технологии, с которыми я работаю ежедневно
           </p>
-        </div>
+        </Reveal>
 
         {/* Bento Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[140px]">
+        <Reveal from="scale" delay={150} className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[140px]">
           {technologies.map((tech, index) => (
             <div
               key={index}
@@ -139,7 +148,7 @@ export default function TechStack(): ReactNode {
                 </div> */}
 
                 {/* Информация */}
-                <div>
+                <div style={{textShadow: "black 0 0 5px"}}>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     {tech.name}
                   </h3>
@@ -156,10 +165,10 @@ export default function TechStack(): ReactNode {
               <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
             </div>
           ))}
-        </div>
+        </Reveal>
 
         {/* Дополнительная информация */}
-        <div className="mt-16 text-center">
+        <Reveal from="up" delay={100} className="mt-16 text-center">
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Постоянно изучаю новые технологии и инструменты
           </p>
@@ -173,7 +182,7 @@ export default function TechStack(): ReactNode {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

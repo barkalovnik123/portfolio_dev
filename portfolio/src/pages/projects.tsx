@@ -9,6 +9,8 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
+import AllProjectsButton from '../widgets/allProjectsButton';
+
 const projects = [
   {
     id: 1,
@@ -34,7 +36,7 @@ export default function ProjectsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black font-serif"
+    <section className="snap-section relative h-screen w-full overflow-hidden bg-black font-serif"
     style={{boxShadow: "black 0 0 120px",
                 zIndex: "10"
             }}>
@@ -130,12 +132,12 @@ export default function ProjectsCarousel() {
         ))}
 
         {/* Кастомные стрелки навигации */}
-        <div className="swiper-button-prev-custom absolute left-6 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 md:left-10">
+        <div className="swiper-button-prev-custom absolute left-6 top-1/3 lg:top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 md:left-10">
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </div>
-        <div className="swiper-button-next-custom absolute right-6 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 md:right-10">
+        <div className="swiper-button-next-custom absolute right-6 top-1/3 lg:top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 md:right-10">
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
@@ -144,19 +146,6 @@ export default function ProjectsCarousel() {
 
       {/* Кастомная пагинация (точки) */}
       <div className="custom-pagination absolute bottom-32 left-8 z-20 flex gap-2 md:bottom-40 md:left-16 lg:bottom-24" />
-
-      {/* Блок с предложением перейти на страницу всех проектов */}
-      <div className="top-15 md:top-auto absolute bottom-8 right-8 z-20 md:bottom-12 md:right-16 lg:bottom-12 lg:right-24">
-        <Link
-          to="/projects"
-          className="group flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/50"
-        >
-          <div className="flex flex-col">
-            <span className="text-xs text-white/60">Все работы</span>
-            <span className="text-sm font-semibold text-white">Смотреть все проекты →</span>
-          </div>
-        </Link>
-      </div>
 
       {/* Индикатор текущего слайда */}
       <div className="absolute left-8 top-8 z-20 flex items-center gap-3 md:left-16 md:top-12">
@@ -168,6 +157,9 @@ export default function ProjectsCarousel() {
           <span className="text-white font-semibold">{String(activeIndex + 1).padStart(2, '0')}</span> / {String(projects.length).padStart(2, '0')}
         </span>
       </div>
+
+      <AllProjectsButton></AllProjectsButton>
+      
     </section>
   )
 }
