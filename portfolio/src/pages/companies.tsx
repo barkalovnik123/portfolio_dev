@@ -13,55 +13,59 @@ const companies = [
     name: 'ProSchool',
     period: '2025 - 2026',
     position: 'Заменяющий преподаватель информатики и математики',
-    description: 'Подготовка детей к ЕГЭ / ОГЭ, проведение уроков по информатике',
+    description: 'Подготовка детей к ЕГЭ и ОГЭ \nПроведение уроков по информатике',
     technologies: ['ЕГЭ', 'ОГЭ', 'Scratch', 'EduBlocks', 'Python'],
     logo: '/_logotype_PROschool_.png',
     color: 'from-purple-500 to-pink-500',
+    featured: false,
   },
   {
     id: 2,
     name: 'Movavi',
     period: '2024 - текущее время',
     position: 'Куратор курса, преподаватель',
-    description: 'Разработчик курса веб-разработки на React, Express. Преподаватель олимпиадного программирования, Python, математики',
-    technologies: ['React', 'Express', 'JavaScript', 'HTML', 'CSS'],
+    description: 'Разработка курса веб-разработки на React, Express\nПреподавание олимпиадного программирования, Python, математики\nДоработка сайта компании',
+    technologies: ['React', 'Express', 'JavaScript', 'HTML', 'CSS', 'TailWind', 'HollyHope CRM', 'Python', 'C++', 'FastAPI', 'SQLite3'],
     logo: "/movavi.svg",
     color: 'from-blue-500 to-cyan-500',
+    featured: true,
   },
   {
     id: 3,
     name: 'Море',
     period: '2025 - 2026',
-    position: 'Преподаватель в летней школе',
-    description: 'Преподаватель разработки сайтов на JavaScript на мастер-классах в летнем лагере',
+    position: 'Преподаватель летней школы',
+    description: 'Проведение мастер-классов по разработке сайтов',
     technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
     logo: '/more.webp',
     color: 'from-orange-500 to-red-500',
+    featured: false,
   },
   {
     id: 4,
     name: '10-я гимназия',
     period: '2025',
-    position: 'Подготовка к ЕГЭ',
-    description: 'Участие в подготовке к ЕГЭ',
-    technologies: ['Python'],
+    position: 'Заменяющий преподаватель',
+    description: 'Подготовка к ЕГЭ',
+    technologies: ['Python', 'ЕГЭ'],
     logo: '/10school.png',
     color: 'from-green-500 to-teal-500',
+    featured: false,
   },
 ]
 
 export default function Companies() {
   return (
-    <section className="snap-section min-h-screen flex flex-col justify-center py-20 font-serif bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section className="snap-section min-h-screen flex flex-col justify-center font-serif bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="w-full h-full">
             <SphereProjection></SphereProjection>
       </div>
-      <div className="container mx-auto px-4">
+      <div className="container flex flex-col mx-auto px-4">
         <Reveal from="up">
-          <h2 className="text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-3xl pt-3 font-bold text-center mb-4 text-gray-900 dark:text-white">
             Мой опыт работы
           </h2>
-          <p className="text-xl text-center text-gray-600 dark:text-gray-300 mb-12">
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
             Компании, в которых я развивал свои навыки
           </p>
         </Reveal>
@@ -69,8 +73,8 @@ export default function Companies() {
         <Reveal from="scale" delay={150}>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1}
+          direction="horizontal"
+          slidesPerView="1"
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -88,24 +92,36 @@ export default function Companies() {
               spaceBetween: 30,
             },
           }}
-          className="pb-16"
+          className="companies-swiper"
         >
           {companies.map((company) => (
-            <SwiperSlide key={company.id}>
-              <div className="mt-4 mb-4 h-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <SwiperSlide
+              key={company.id}
+              className={`company-slide ${company.featured ? 'company-slide--featured' : ''}`}
+            >
+              <div className="h-content bg-white dark:bg-gray-800 shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-[1.015]
+               hover:shadow-2xl flex flex-col m-2">
                 {/* Градиентная шапка */}
-                <div className={`h-32 bg-linear-to-br ${company.color} flex items-center justify-center`}>
-                  <div className="text-6xl overflow-clip">
-                    <img src={company.logo} alt="" className='p-4'/>
+                <div className={`shrink-0 bg-linear-to-br ${company.color} flex items-center justify-center
+                max-h-48 md:h-full`}>
+                  <div className="overflow-hidden">
+                    <img src={company.logo} alt="" className='p-4 max-h-48'/>
                   </div>
                 </div>
 
                 {/* Контент карточки */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                    {company.name}
-                  </h3>
-                  
+                <div className="p-6 overflow-y-auto">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      {company.name}
+                    </h3>
+                    {company.featured && (
+                      <span className="px-2.5 py-1 text-xs font-semibold uppercase tracking-wide bg-blue-600 text-white">
+                        Текущее место
+                      </span>
+                    )}
+                  </div>
+
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
                       {company.position}
@@ -119,16 +135,17 @@ export default function Companies() {
                     {company.period}
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                    {company.description}
-                  </p>
+                  {company.description.split("\n").map(item => <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    {item}
+                  </p>)}
+                  
 
                   {/* Технологии */}
                   <div className="flex flex-wrap gap-2">
                     {company.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
+                        className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                       >
                         {tech}
                       </span>

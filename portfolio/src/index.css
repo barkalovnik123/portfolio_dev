@@ -81,3 +81,19 @@ html {
         transform: none !important;
     }
 }
+
+/* Свайпер компаний */
+
+.companies-swiper {
+    overflow: visible !important;
+    height: 70vh;
+}
+.companies-swiper.swiper-horizontal .swiper-button-prev {
+    left: -20px;
+}
+.companies-swiper.swiper-horizontal .swiper-button-next {
+    right: -20px;
+}
+.companies-swiper .swiper-pagination {
+    bottom: -200px;
+}

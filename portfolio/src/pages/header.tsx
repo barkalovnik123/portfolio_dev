@@ -22,8 +22,8 @@ const Hero = () => {
                     Разработчик Full-stack
                 </p>
             </hgroup>
-            <div className="w-full h-full">
-                <video src="/hero-video.webm" className="w-full z-[-2] absolute bottom-0  left-0 right-0" autoPlay muted loop playsInline></video>
+            <div className="w-full h-full overflow-hidden">
+                <video src="/hero-video.webm" className="w-full min-w-3xl z-[-2] absolute md:left-0 bottom-0" autoPlay muted loop playsInline></video>
             </div>
         </section>
     )
