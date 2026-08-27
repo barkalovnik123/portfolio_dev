@@ -1,1 +1,0 @@
-export interface Project {} // Может не потребуется, иначе напишу тут класс, оборачивающий ProjectData

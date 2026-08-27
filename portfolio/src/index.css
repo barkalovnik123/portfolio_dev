@@ -1,1 +1,100 @@
 @import "tailwindcss";
+
+/* ==========================================================================
+   Переходы между секциями "по экранам"
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Контейнер, в котором секции защёлкиваются по одной на экран */
+.snap-container {
+    scroll-snap-type: y mandatory;
+}
+
+/* Каждая секция-"экран" */
+.snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* ==========================================================================
+   Reveal-анимации (появление контента при скролле к секции)
+   ========================================================================== */
+
+.reveal {
+    opacity: 0;
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal--up {
+    transform: translateY(56px);
+}
+.reveal--down {
+    transform: translateY(-56px);
+}
+.reveal--left {
+    transform: translateX(56px);
+}
+.reveal--right {
+    transform: translateX(-56px);
+}
+.reveal--scale {
+    transform: scale(0.92);
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Плавное появление заголовка на первом экране при загрузке страницы */
+.hero-intro {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: hero-fade-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+@keyframes hero-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .hero-intro {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Свайпер компаний */
+
+.companies-swiper {
+    overflow: visible !important;
+    height: 73vh;
+}
+/* Сдвиг влево и вправо для кнопок навигации */
+.companies-swiper.swiper-horizontal .swiper-button-prev {
+    left: -37px;
+}
+.companies-swiper.swiper-horizontal .swiper-button-next {
+    right: -37px;
+}
+.companies-swiper .swiper-pagination {
+    bottom: -200px;
+}

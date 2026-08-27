@@ -1,0 +1,2 @@
+import{e as elementChildren,a as createElement}from"./utils.min.mjs";function createElementIfNotDefined(e,t,n,a){const l=n??{},r=t??{};return e.params.createElements&&Object.keys(a).forEach(t=>{if(!l[t]&&!0===l.auto){let n=elementChildren(e.el,`.${a[t]}`)[0];n||(n=createElement("div",a[t]),n.className=a[t],e.el.append(n)),l[t]=n,r[t]=n}}),l}export{createElementIfNotDefined as c};
+//# sourceMappingURL=create-element-if-not-defined.min.mjs.map

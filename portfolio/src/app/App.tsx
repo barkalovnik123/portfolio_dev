@@ -1,17 +1,14 @@
-import './App.css'
-import ProjectList from '../pages/projectList'
-import Header from '../pages/header'
-import About from '../pages/about'
-import Footer from '../pages/footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Home from '../pages/home'
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <About></About>
-      <ProjectList></ProjectList>
-      <Footer></Footer>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={Home()}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

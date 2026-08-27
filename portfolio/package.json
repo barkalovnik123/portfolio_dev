@@ -12,11 +12,12 @@
   "dependencies": {
     "buffer": "^6.0.3",
     "gray-matter": "^4.0.3",
+    "heroicons": "^2.2.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-markdown": "^10.1.0",
+    "react-slick": "^0.31.0",
     "remark-gfm": "^4.0.1",
-    "vite-plugin-node-polyfills": "^0.28.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
