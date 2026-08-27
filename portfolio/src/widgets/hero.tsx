@@ -23,7 +23,14 @@ const Hero = () => {
                 </p>
             </hgroup>
             <div className="w-full h-full overflow-hidden">
-                <video src="/hero-video.webm" className="w-full min-w-3xl z-[-2] absolute md:left-0 bottom-0" autoPlay muted loop playsInline></video>
+                <video 
+                    src="/hero-video.webm" 
+                    className="absolute bottom-0 left-1/2 min-w-full min-h-full -translate-x-1/2 object-cover z-[-2]" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                ></video>
             </div>
         </section>
     )
