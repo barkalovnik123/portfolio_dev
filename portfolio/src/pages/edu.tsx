@@ -1,13 +1,14 @@
 // Education.tsx
 import { useState } from 'react'
 import Reveal from '../widgets/reveal'
+import GameOfLife from '../widgets/gameOfLife'
 
 export default function Education() {
   const [isHovered, setIsHovered] = useState(false)
 
-  return (
-    <section className="snap-section min-h-screen flex flex-col justify-center py-16 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800
-    font-serif">
+  return <>
+    <section className="snap-section min-h-screen flex flex-col justify-center py-16 from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800
+    font-serif relative">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Заголовок секции */}
@@ -28,14 +29,14 @@ export default function Education() {
             onMouseLeave={() => setIsHovered(false)}
           >
             {/* Декоративный градиент сверху */}
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
+            <div className="absolute top-0 left-0 right-0 h-2 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
 
             <div className="p-8 md:p-12">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Логотип университета */}
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="relative">
-                    <div className={`w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
+                    <div className={`w-32 h-32 md:w-40 md:h-40 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
                       <img
                         src="/nstu-logo.png"
                         alt="НГТУ НЭТИ"
@@ -109,7 +110,7 @@ export default function Education() {
                   <a
                     href="https://www.nstu.ru/studies/stud_account/student_portfolio/c56574b65a606a6f18e56499e30a5bc1792ece62"
                     download
-                    className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+                    className="group inline-flex items-center gap-3 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
                   >
                     <svg className="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V16a2 2 0 01-2 2z" />
@@ -121,11 +122,11 @@ export default function Education() {
             </div>
 
             {/* Декоративный элемент снизу */}
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-linear-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           </div>
           </Reveal>
         </div>
       </div>
     </section>
-  )
+  </>
 }

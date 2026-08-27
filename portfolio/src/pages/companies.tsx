@@ -55,11 +55,8 @@ const companies = [
 ]
 
 export default function Companies() {
-  return (
-    <section className="snap-section min-h-screen flex flex-col justify-center font-serif bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="w-full h-full">
-            <SphereProjection></SphereProjection>
-      </div>
+  return <>
+    <section className="snap-section min-h-screen flex flex-col justify-center font-serif from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container flex flex-col mx-auto px-4">
         <Reveal from="up">
           <h2 className="text-3xl pt-3 font-bold text-center mb-4 text-gray-900 dark:text-white">
@@ -159,5 +156,5 @@ export default function Companies() {
         </Reveal>
       </div>
     </section>
-  )
+  </>
 }

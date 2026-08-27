@@ -9,8 +9,6 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-import AllProjectsButton from '../widgets/allProjectsButton';
-
 const projects = [
   {
     id: 1,
@@ -23,19 +21,19 @@ const projects = [
   },
   {
     id: 2,
-    title: 'EcoEmergency',
+    title: 'МОДА',
     description:
-      'Геймифицированная платформа для волонтёров',
-    tags: ['JQuery', 'Express', 'FakeDB', 'Telegram'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-    link: '/projects/crm',
+      'Сайт арт-агенства с добавлением и поиском статей',
+    tags: ['Next.JS', 'Framer Motion', 'Fuse.JS', 'Express', 'SQLite3', 'Multer', 'BCrypt', 'After Effects', 'Yandex Map'],
+    image: '/moda.png',
+    link: 'http://217.71.129.139:4650/',
   },
 ]
 
 export default function ProjectsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  return (
+  return <>
     <section className="snap-section relative h-screen w-full overflow-hidden bg-black font-serif"
     style={{boxShadow: "black 0 0 120px",
                 zIndex: "10"
@@ -85,7 +83,7 @@ export default function ProjectsCarousel() {
             <div className="relative z-10 flex h-full flex-col justify-end p-8 md:p-16 lg:p-24">
               <div className="max-w-2xl space-y-6">
                 {/* Теги проекта */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 max-w-lg">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -158,10 +156,11 @@ export default function ProjectsCarousel() {
         </span>
       </div>
 
-      <AllProjectsButton></AllProjectsButton>
+      {/* Кнопка "Все проекты" - пока отключена */}
+      {/* <AllProjectsButton></AllProjectsButton> */}
       
     </section>
-  )
+    </>
 }
 
 //123456☺☻♥-тmТ

@@ -6,19 +6,26 @@ import Projects from "../pages/projects"
 import Edu from "../pages/edu"
 import Stacks from "../pages/stacks"
 import Contacts from "../pages/contacts"
+import GameOfLife from '../widgets/gameOfLife'
+import SphereProjectionBackground from '../widgets/sphereProjection'
 import { BrowserRouter } from 'react-router-dom'
+
 
 function App() {
   return (
     <BrowserRouter>
       <div className="snap-container h-screen overflow-y-auto overflow-x-hidden">
+        <SphereProjectionBackground></SphereProjectionBackground>
         <Hero></Hero>
         <Companies></Companies>
-        <Projects></Projects>
-        <Edu></Edu>
-        <Stacks></Stacks>
-        <Contacts></Contacts>
-        <Footer></Footer>
+        <section className='relative'>
+          <GameOfLife></GameOfLife>
+          <Projects></Projects>
+          <Edu></Edu>
+          <Stacks></Stacks>
+          <Contacts></Contacts>
+          <Footer></Footer>
+        </section>
       </div>
     </BrowserRouter>
   )

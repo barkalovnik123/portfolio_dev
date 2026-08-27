@@ -156,7 +156,7 @@ export default function SphereProjectionBackground() {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-screen h-screen overflow-hidden">
+    <div className="sticky w-screen h-screen overflow-hidden inset-0 z-[-1]">
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
