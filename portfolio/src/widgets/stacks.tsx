@@ -1,188 +1,207 @@
-import { type ReactNode } from 'react'
-import Reveal from './reveal'
+import React, { useMemo } from "react";
+import {
+  FileJson,
+  FileCode2,
+  Terminal,
+  Coffee,
+  Cpu,
+  Triangle,
+  Atom,
+  Server,
+  Zap,
+  Database,
+  GitBranch,
+  Paintbrush,
+  Gamepad2,
+  Code,
+  Blocks,
+  Cat,
+  Rocket,
+  Kanban,
+  CircuitBoard,
+  Binary,
+} from "lucide-react";
 
-export default function TechStack(): ReactNode {
-  const technologies = [
-    {
-      name: 'React',
-      category: 'Frontend',
-      icon: '⚛️',
-      description: 'Основной фреймворк для SPA',
-      bg: '/react.png',
-      gradient: 'from-cyan-500 to-blue-600',
-      size: 'col-span-2 row-span-2',
-    },
-    {
-      name: 'TypeScript',
-      category: 'Язык',
-      icon: '📘',
-      description: 'Типизация JavaScript',
-      bg: '/ts.png',
-      gradient: 'from-blue-600 to-indigo-700',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'Tailwind CSS',
-      category: 'Стилизация',
-      icon: '🎨',
-      description: 'Utility-first CSS',
-      bg: '/tw.jpg',
-      gradient: 'from-sky-400 to-cyan-500',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'Node.js',
-      category: 'Backend',
-      icon: '🟢',
-      bg: '/nodejs-logo.svg',
-      description: 'Серверная разработка',
-      gradient: 'from-green-500 to-emerald-600',
-      size: 'col-span-1 row-span-2',
-    },
-    {
-      name: 'Next.js',
-      category: 'Framework',
-      icon: '▲',
-      bg: "/nextjs.jpg",
-      description: 'React с SSR и SSG',
-      gradient: 'from-gray-900 to-gray-700',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'PostgreSQL',
-      category: 'База данных',
-      icon: '🐘',
-      bg: "/postgre.webp",
-      description: 'Реляционная БД',
-      gradient: 'from-blue-700 to-indigo-800',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'Git',
-      category: 'Инструменты',
-      icon: '🔀',
-      bg: "/git.webp",
-      description: 'Контроль версий',
-      gradient: 'from-orange-500 to-red-600',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'Docker',
-      category: 'DevOps',
-      icon: '🐳',
-      bg: "docker.jpeg",
-      description: 'Контейнеризация',
-      gradient: 'from-blue-500 to-cyan-600',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'Python',
-      category: 'Backend',
-      icon: '🐍',
-      bg: "python.webp",
-      description: 'Автоматизация и API',
-      gradient: 'from-yellow-500 to-orange-600',
-      size: 'col-span-2 row-span-1',
-    },
-    {
-      name: 'Figma',
-      category: 'Дизайн',
-      icon: '🎯',
-      bg: "/figma.jpg",
-      description: 'UI/UX прототипы',
-      gradient: 'from-purple-500 to-pink-600',
-      size: 'col-span-1 row-span-1',
-    },
-    {
-      name: 'MongoDB',
-      category: 'База данных',
-      icon: '🍃',
-      bg: '/mongo.webp',
-      description: 'NoSQL база данных',
-      gradient: 'from-green-600 to-emerald-700',
-      size: 'col-span-1 row-span-1',
-    },
-  ]
+type Skill = {
+  name: string;
+  icon: React.ReactNode;
+};
+
+type SkillCategory = {
+  title: string;
+  accent: string;
+  skills: Skill[];
+  span: string;
+};
+
+const categories: SkillCategory[] = [
+  {
+    title: "Языки",
+    accent: "text-amber-400",
+    span: "md:col-span-2 md:row-span-1",
+    skills: [
+      { name: "JavaScript", icon: <FileJson size={16} /> },
+      { name: "TypeScript", icon: <FileCode2 size={16} /> },
+      { name: "Python", icon: <Terminal size={16} /> },
+      { name: "Java", icon: <Coffee size={16} /> },
+      { name: "C / C++", icon: <Cpu size={16} /> },
+    ],
+  },
+  {
+    title: "Фреймворки",
+    accent: "text-blue-400",
+    span: "md:col-span-2 md:row-span-1",
+    skills: [
+      { name: "Next.js", icon: <Triangle size={16} /> },
+      { name: "React", icon: <Atom size={16} /> },
+      { name: "Express", icon: <Server size={16} /> },
+      { name: "Javalin", icon: <Coffee size={16} /> },
+      { name: "FastAPI", icon: <Zap size={16} /> },
+    ],
+  },
+  {
+    title: "Базы данных",
+    accent: "text-emerald-400",
+    span: "md:col-span-1 md:row-span-1",
+    skills: [
+      { name: "SQLite3", icon: <Database size={16} /> },
+      { name: "PostgreSQL", icon: <Database size={16} /> },
+    ],
+  },
+  {
+    title: "Инструменты",
+    accent: "text-fuchsia-400",
+    span: "md:col-span-3 md:row-span-1",
+    skills: [
+      { name: "Git", icon: <GitBranch size={16} /> },
+      { name: "Figma", icon: <Paintbrush size={16} /> },
+      { name: "Game Maker", icon: <Gamepad2 size={16} /> },
+      { name: "Visual Studio Code", icon: <Code size={16} /> },
+      { name: "IntelliJ IDEA", icon: <Blocks size={16} /> },
+    ],
+  },
+  {
+    title: "Обучение",
+    accent: "text-cyan-400",
+    span: "md:col-span-2 md:row-span-1",
+    skills: [
+      { name: "EduBlocks", icon: <Blocks size={16} /> },
+      { name: "Scratch", icon: <Cat size={16} /> },
+      { name: "TurboWarp", icon: <Rocket size={16} /> },
+    ],
+  },
+  {
+    title: "Электроника",
+    accent: "text-lime-400",
+    span: "md:col-span-1 md:row-span-1",
+    skills: [
+      { name: "Arduino", icon: <CircuitBoard size={16} /> },
+      { name: "Micro Python", icon: <Binary size={16} /> },
+    ],
+  },
+  {
+    title: "Менеджмент",
+    accent: "text-rose-400",
+    span: "md:col-span-1 md:row-span-1",
+    skills: [{ name: "Яндекс Трекер", icon: <Kanban size={16} /> }],
+  },
+];
+
+type Star = {
+  top: number;
+  left: number;
+  size: number;
+  duration: number;
+  delay: number;
+};
+
+function useStars(count: number): Star[] {
+  return useMemo(
+    () =>
+      Array.from({ length: count }, () => ({
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        size: Math.random() * 1.6 + 0.6,
+        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 4,
+      })),
+    [count]
+  );
+}
+
+export default function Stacks() {
+  const stars = useStars(90);
 
   return (
-    <section className="snap-section min-h-screen flex flex-col justify-center font-serif
-    py-20 bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 bg-[url('/nightsky.jpg')] bg-no-repeat bg-cover"
-    style={{
-        boxShadow: "black 0 0 120px",
-                zIndex: "10"
-            }}>
-      <div className="container mx-auto px-4">
+    <section
+      className="relative snap-section w-screen h-screen font-serif px-6 py-10 sm:px-12 overflow-y-auto"
+      style={{
+        background:
+          "radial-gradient(circle at bottom left, #374151 0%, #000000 75%)",
+        boxShadow: "black 0px -100px 180px"
+      }}
+    >
+      <style>{`
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.15; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
+
+      {/* Звёзды */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {stars.map((star, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full bg-white"
+            style={{
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              animation: `twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col">
+        {/* Бейдж SKILLS */}
+        <span className="inline-block w-fit border border-gray-500 bg-gray-700 px-5 py-1.5 text-xs font-bold tracking-widest text-gray-200">
+          SKILLS
+        </span>
+
         {/* Заголовок */}
-        <Reveal from="up" className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Стэки
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Инструменты и технологии, с которыми я работаю ежедневно
-          </p>
-        </Reveal>
+        <h2 className="mt-4 text-4xl font-bold text-white sm:text-5xl">
+          Tech Stack
+        </h2>
 
-        {/* Bento Grid */}
-        <Reveal from="scale" delay={150} className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[140px]">
-          {technologies.map((tech, index) => (
+        {/* Bento-сетка */}
+        <div className="mt-10 grid flex-1 grid-cols-1 grid-rows-[repeat(4,minmax(0,1fr))] gap-4 md:grid-cols-4 md:grid-rows-[repeat(3,minmax(0,1fr))]">
+          {categories.map((category) => (
             <div
-              key={index}
-              className={`${tech.size} group relative overflow-hidden rounded-3xl bg-linear-to-br ${tech.gradient} p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
-              style={{
-                backgroundImage: tech.bg
-                  ? `url(${tech.bg})`
-                  : undefined,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+              key={category.title}
+              className={`flex flex-col gap-4 border border-gray-600 bg-gray-700 p-5 ${category.span}`}
             >
-              {/* Декоративный круг */}
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all" />
-              
-              {/* Контент */}
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                {/* Иконка */}
-                {/* <div className="text-4xl md:text-5xl mb-2 transform group-hover:scale-110 transition-transform">
-                  {tech.icon}
-                </div> */}
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                {category.title}
+              </p>
 
-                {/* Информация */}
-                <div style={{textShadow: "black 0 0 5px"}}>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
-                    {tech.name}
-                  </h3>
-                  <p className="text-xs md:text-sm text-white/80 mb-2">
-                    {tech.category}
-                  </p>
-                  <p className="text-sm text-white/90 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {tech.description}
-                  </p>
-                </div>
+              <div className="flex flex-wrap content-start gap-2.5">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center gap-2 border border-gray-600 bg-gray-800 px-3.5 py-2 text-sm font-semibold text-gray-100"
+                  >
+                    <span className={category.accent}>{skill.icon}</span>
+                    {skill.name}
+                  </div>
+                ))}
               </div>
-
-              {/* Эффект свечения при hover */}
-              <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
             </div>
           ))}
-        </Reveal>
-
-        {/* Дополнительная информация */}
-        <Reveal from="up" delay={100} className="mt-16 text-center">
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Постоянно изучаю новые технологии и инструменты
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {['Redux', 'GraphQL', 'Jest', 'Webpack', 'AWS', 'Linux'].map((skill) => (
-              <span
-                key={skill}
-                className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-shadow"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </Reveal>
+        </div>
       </div>
     </section>
-  )
+  );
 }

@@ -89,7 +89,7 @@ export default function Contacts(): ReactNode {
 
                   <div className="relative z-10 flex items-center gap-6">
                     {/* Иконка */}
-                    <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br ${contact.color} text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br ${contact.color} text-white shadow-lg group-hover:scale-110 transition-transform shrink-0`}>
                       {contact.icon}
                     </div>
 
