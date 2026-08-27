@@ -1,7 +1,7 @@
-// Education.tsx
+// edu.tsx
 import { useState } from 'react'
-import Reveal from '../widgets/reveal'
-import GameOfLife from '../widgets/gameOfLife'
+
+import Reveal from './reveal'
 
 export default function Education() {
   const [isHovered, setIsHovered] = useState(false)
@@ -38,9 +38,9 @@ export default function Education() {
                   <div className="relative">
                     <div className={`w-32 h-32 md:w-40 md:h-40 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
                       <img
-                        src="/nstu-logo.png"
+                        src="/nstu.webp"
                         alt="НГТУ НЭТИ"
-                        className="w-20 h-20 md:w-24 md:h-24 object-contain filter brightness-0 invert"
+                        className="w-20 h-20 md:w-24 md:h-24 object-contain"
                         onError={(e) => {
                           // Fallback если логотип не загружен
                           e.currentTarget.style.display = 'none'

@@ -71,7 +71,7 @@ const TIMER_SPEED = 0.8;
    Компонент-фон
 --------------------------------------------------------------------- */
 
-export default function SphereProjectionBackground() {
+export default function SphereProjection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
   const timerRef = useRef(0);
@@ -156,8 +156,6 @@ export default function SphereProjectionBackground() {
   }, []);
 
   return (
-    <div className="sticky w-screen h-screen overflow-hidden inset-0 z-[-1]">
-      <canvas ref={canvasRef} className="block w-full h-full" />
-    </div>
+    <canvas ref={canvasRef} className="block w-full h-full" />
   );
 }

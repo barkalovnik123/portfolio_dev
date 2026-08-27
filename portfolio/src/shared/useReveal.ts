@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * Отслеживает появление элемента во вьюпорте и один раз "включает" его —
+ * Отслеживает появление элемента во вьюпорте и один раз "включает" его -
  * используется для плавных transition-эффектов между секциями при скролле.
  */
 export function useReveal<T extends HTMLElement = HTMLDivElement>(

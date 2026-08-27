@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 export default function GameOfLife() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,7 +14,7 @@ export default function GameOfLife() {
     const aliveProbability = 0.15; // вероятность живой клетки на старте
     const allowRandomLife = false; // разрешить случайное рождение
     const randomLifeProbability = 0.0005;
-    const poleType = 0; // 0 - тор (края соединены), 1 - ограничено экраном
+    const poleType: 1 | 0 = 0; // 0 - тор (края соединены), 1 - ограничено экраном
     const tickMs = 250; // скорость смены поколений
     const fadeSpeed = 0.08; // скорость плавного появления/исчезновения (0..1, меньше = плавнее)
 

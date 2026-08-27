@@ -1,6 +1,6 @@
 // Contacts.tsx
 import { type ReactNode } from 'react'
-import Reveal from '../widgets/reveal'
+import Reveal from './reveal'
 
 export default function Contacts(): ReactNode {
   const primaryContacts = [
@@ -82,14 +82,14 @@ export default function Contacts(): ReactNode {
                   href={contact.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-white/40"
+                  className="group relative overflow-hidden rounded-2xl bg-linear-to-br from-white/10 to-white/5 border border-white/20 p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-white/40"
                 >
                   {/* Градиентный фон при hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${contact.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                  <div className={`absolute inset-0 bg-linear-to-br ${contact.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
 
                   <div className="relative z-10 flex items-center gap-6">
                     {/* Иконка */}
-                    <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${contact.color} text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                    <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br ${contact.color} text-white shadow-lg group-hover:scale-110 transition-transform`}>
                       {contact.icon}
                     </div>
 
@@ -145,11 +145,11 @@ export default function Contacts(): ReactNode {
                   className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-5 transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-105"
                 >
                   {/* Градиентный фон при hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${contact.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  <div className={`absolute inset-0 bg-linear-to-br ${contact.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
 
                   <div className="relative z-10 flex items-center gap-4">
                     {/* Иконка */}
-                    <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${contact.color} text-white shadow-md group-hover:scale-110 transition-transform`}>
+                    <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-br ${contact.color} text-white shadow-md group-hover:scale-110 transition-transform`}>
                       {contact.icon}
                     </div>
 
@@ -168,7 +168,7 @@ export default function Contacts(): ReactNode {
 
                     {/* Стрелка */}
                     <svg
-                      className="w-5 h-5 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all flex-shrink-0"
+                      className="w-5 h-5 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

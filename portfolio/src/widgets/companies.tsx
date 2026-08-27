@@ -1,11 +1,11 @@
 // Companies.tsx
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import SphereProjection from '../widgets/sphereProjection'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import Reveal from '../widgets/reveal'
+
+import Reveal from './reveal'
 
 const companies = [
   {
@@ -13,7 +13,7 @@ const companies = [
     name: 'ProSchool',
     period: '2025 - 2026',
     position: 'Заменяющий преподаватель информатики и математики',
-    description: 'Подготовка детей к ЕГЭ и ОГЭ \nПроведение уроков по информатике',
+    description: 'Подготовка детей к ЕГЭ и ОГЭ\nПроведение уроков по информатике',
     technologies: ['ЕГЭ', 'ОГЭ', 'Scratch', 'EduBlocks', 'Python'],
     logo: '/_logotype_PROschool_.png',
     color: 'from-purple-500 to-pink-500',
@@ -32,6 +32,17 @@ const companies = [
   },
   {
     id: 3,
+    name: 'МОДА',
+    period: '2026',
+    position: 'Разработчик',
+    description: 'Разработка сайта компании',
+    technologies: ['Next.js', 'Fuse.js', 'Framer Motion', 'Swiper', 'EmailJS', 'Yandex Maps', 'TipTap', 'i18n', 'DOMPurify', 'Express', 'SQLite3', 'Multer', 'BCrypt'],
+    logo: "/moda-logo.png",
+    color: 'from-yellow-400 to-yellow-700',
+    featured: true,
+  },
+  {
+    id: 4,
     name: 'Море',
     period: '2025 - 2026',
     position: 'Преподаватель летней школы',
@@ -42,7 +53,7 @@ const companies = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     name: '10-я гимназия',
     period: '2025',
     position: 'Заменяющий преподаватель',
@@ -132,7 +143,7 @@ export default function Companies() {
                     {company.period}
                   </div>
 
-                  {company.description.split("\n").map(item => <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {company.description.split("\n").map((item, i) => <p className="text-gray-600 dark:text-gray-300 mb-2 last-of-type:mb-6" key={i}>
                     {item}
                   </p>)}
                   

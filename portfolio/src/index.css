@@ -86,13 +86,14 @@ html {
 
 .companies-swiper {
     overflow: visible !important;
-    height: 70vh;
+    height: 73vh;
 }
+/* Сдвиг влево и вправо для кнопок навигации */
 .companies-swiper.swiper-horizontal .swiper-button-prev {
-    left: -20px;
+    left: -37px;
 }
 .companies-swiper.swiper-horizontal .swiper-button-next {
-    right: -20px;
+    right: -37px;
 }
 .companies-swiper .swiper-pagination {
     bottom: -200px;

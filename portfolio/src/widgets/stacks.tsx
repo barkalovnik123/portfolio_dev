@@ -1,6 +1,5 @@
 import { type ReactNode } from 'react'
-// TechStack.tsx
-import Reveal from '../widgets/reveal'
+import Reveal from './reveal'
 
 export default function TechStack(): ReactNode {
   const technologies = [
